@@ -3,7 +3,6 @@
 import os
 import sys
 
-sys.path.append('/home/diegoloretti/projetojawsflix/projectjawsflixdjango')
 
 def main():
     """Run administrative tasks."""
