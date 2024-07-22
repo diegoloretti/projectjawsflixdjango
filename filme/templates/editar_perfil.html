@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{%block titulo%}Editar Perfil - JawsFlix{%endblock%}
+
+{%block head%}
+<style>
+    .gradient-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 1%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 110%);
+      }
+
+    .form-text {
+        color:gold;
+    }
+</style>
+{%endblock%}
+
+{%block content%}
+
+<header class="min-h-screen bg-black bg-opacity-50 bg-blend-overlay showcase flex justify-center items-center bg-no-repeat"  style="background-image: url('{% static 'images/background_netflix.jpg' %}')">
+  <div class="gradient-overlay"></div>
+  <div class="z-10 h-full py-32 md:py-0 text-gray-100 text-center flex items-center flex-col">
+      <h2>{{ user.username }}</h2>
+      <form  method="post">
+        {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Edite os campos abaixo para editar seu perfil</legend>
+            {{ form|crispy }}
+          </fieldset>
+          <button class="bg-red-600 py-1 px-3 text-white md:text-lg rounded-md" type="submit">Editar Perfil</button>
+      </form>
+      <small><a href="{% url 'filme:mudarsenha' %}" class="hover:underline">Quer mudar sua senha?</a></small>
+  </div>
+</header>
+
+<header class="min-h-screen bg-black bg-opacity-50 bg-blend-overlay showcase flex justify-center items-center bg-no-repeat" style="background-image: url('{% static 'images/background_netflix.jpg' %}')">
+  <div class="gradient-overlay"></div>
+  <div class="z-10 h-full py-32 md:py-0 text-gray-100 text-center flex items-center flex-col">
+    <h2>{{ user.email }}</h2>
+    <form method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Edite os campos abaixo para editar seu perfil</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <button class="bg-red-600 py-1 px-3 text-white md:text-lg rounded-md" type="submit">Editar Perfil</button>
+    </form>
+    <small><a href="#" class="text-red-600 hover:underline">Quer mudar sua senha?</a></small>
+  </div>
+</header>
+
+<footer class=" px-5 py-10 ">
+  <ul class="flex justify-between items-center">
+      
+      <li>&copy; 2024</li>
+      <li> Feito com Python (Django)</li>
+      <li>Diego</li>
+  </ul>
+</footer>
+
+{%endblock%}
