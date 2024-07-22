@@ -33,7 +33,7 @@ else:
     if DEBUG:
         print("⚠ Warning: LOCAL DEBUG Mode is Active!!")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["34.95.185.151"]
 
 
 # Application definition
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
- #  'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -138,11 +138,13 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = 'media/'
 
