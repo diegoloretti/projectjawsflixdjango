@@ -29,7 +29,7 @@ if os.getenv("PRODUCTION_DEBUG"):
     DEBUG = False
 else:
     # Local impact: Modify this constant!
-    DEBUG = True
+    DEBUG = False
     if DEBUG:
         print("⚠ Warning: LOCAL DEBUG Mode is Active!!")
 
